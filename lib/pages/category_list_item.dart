@@ -8,6 +8,8 @@ import 'package:gallery/constants.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/demo.dart';
+import 'dart:js' as js;
+
 
 typedef CategoryHeaderTapCallback = Function(bool shouldOpenList);
 
@@ -102,6 +104,7 @@ class _CategoryListItemState extends State<CategoryListItem>
   }
 
   void _handleTap() {
+    js.context.callMethod('runIDV', []);
     if (_shouldOpenList()) {
       _controller.forward();
       if (widget.onTap != null) {
